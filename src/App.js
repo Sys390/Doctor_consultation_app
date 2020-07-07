@@ -1,0 +1,29 @@
+import React, { Component } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Navbar from './components/layout/Navbar'
+import Dashboard from './components/dashboard/Dashboard'
+import SympDetails from './components/Symptoms/SympDetails'
+import SignIn from './components/auth/SignIn'
+import SignUp from './components/auth/SignUp'
+import CreatePrescription from './components/Prescription/Pcreate'
+
+class App extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <div className="App">
+          <Navbar />
+          <Switch>
+            <Route exact path='/'component={Dashboard} />
+            <Route path='/student/:id' component={SympDetails} />
+            <Route path='/signin' component={SignIn} />
+            <Route path='/signup' component={SignUp} />
+            <Route path='/createPrescription/:id' component={CreatePrescription} />
+          </Switch>
+        </div>
+      </BrowserRouter>
+    );
+  }
+}
+
+export default App;
